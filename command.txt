@@ -1,0 +1,4 @@
+cd /filespace/c/ccheng93/UVM/uvm_training_lab/labs/lab01
+vlib work
+vlog +incdir+/filespace/c/ccheng93/UVM/uvm_training_lab/uvm-1.1d/src +define+UVM_NO_DPI /filespace/c/ccheng93/UVM/uvm_training_lab/uvm-1.1d/src/uvm_pkg.sv test.sv
+vsim -c -lib work testbench +UVM_TESTNAME=my_test -do "log -r /*; run -all; quit" -l simulation.log
