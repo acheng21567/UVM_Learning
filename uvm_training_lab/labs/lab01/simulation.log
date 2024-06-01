@@ -1,30 +1,30 @@
-# End time: 19:00:30 on May 30,2024, Elapsed time: 0:01:21
-# Errors: 0, Warnings: 2
-# vsim -c -lib work testbench "+UVM_TESTNAME=my_test" -do "log -r /*; run -all; quit" -l simulation.log 
-# Start time: 19:00:30 on May 30,2024
-# ** Warning: (vsim-7032) The 32-bit glibc RPM does not appear to be installed on this machine.  Calls to gcc may fail.
-# 
-# ** Warning: (vsim-7032) The 32-bit glibc RPM does not appear to be installed on this machine.  Calls to gcc may fail.
-# 
-# Loading /tmp/ccheng93@tux-116_dpi_1873569/linux_gcc-10/export_tramp.so
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Error: (vopt-13130) Failed to find design unit 'testbench'.
-#         Searched libraries:
-#             work
-# Optimization failed
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=2.
+# vsim -c -lib work test "+UVM_TESTNAME=my_test" -do "log -r /*; run -all; quit -sim" -l simulation.log 
+# Start time: 21:38:34 on May 31,2024
+# ** Error (suppressible): (vsim-19) Failed to access library 'work' at "work".
+# No such file or directory. (errno = ENOENT)
 # Error loading design
-# End time: 19:00:32 on May 30,2024, Elapsed time: 0:00:02
-# Errors: 1, Warnings: 2
-vsim -c -lib work test +UVM_TESTNAME=my_test -do "log -r /*; run -all; quit" -l simulation.log
-# vsim -c -lib work test "+UVM_TESTNAME=my_test" -do "log -r /*; run -all; quit" -l simulation.log 
-# Start time: 19:01:19 on May 30,2024
-# ** Warning: (vsim-7032) The 32-bit glibc RPM does not appear to be installed on this machine.  Calls to gcc may fail.
+
+# End time: 21:38:35 on May 31,2024, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+vlib work
+
+vlog +incdir+/filespace/c/ccheng93/UVM_Learning/uvm_training_lab/uvm-1.1d/src +define+UVM_NO_DPI /filespace/c/ccheng93/UVM_Learning/uvm_training_lab/uvm-1.1d/src/uvm_pkg.sv test.sv
+# QuestaSim vlog 2023.2_1 Compiler 2023.05 May 12 2023
+# Start time: 21:38:49 on May 31,2024
+# vlog -reportprogress 300 "+incdir+/filespace/c/ccheng93/UVM_Learning/uvm_training_lab/uvm-1.1d/src" "+define+UVM_NO_DPI" /filespace/c/ccheng93/UVM_Learning/uvm_training_lab/uvm-1.1d/src/uvm_pkg.sv test.sv 
+# -- Compiling package uvm_pkg
+# -- Compiling program test
+# -- Importing package uvm_pkg
 # 
-# ** Warning: (vsim-7032) The 32-bit glibc RPM does not appear to be installed on this machine.  Calls to gcc may fail.
-# 
-# Loading /tmp/ccheng93@tux-116_dpi_1874208/linux_gcc-10/export_tramp.so
-# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Top level modules:
+# 	test
+# End time: 21:38:50 on May 31,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+
+vsim -c -lib work test +UVM_TESTNAME=my_test -do "log -r /*; run -all; quit -sim" -l simulation.log
+# vsim -c -lib work test "+UVM_TESTNAME=my_test" -do "log -r /*; run -all; quit -sim" -l simulation.log 
+# Start time: 21:38:53 on May 31,2024
+# ** Note: (vsim-3812) Design is being optimized...
 # ** Note: (vsim-8785) UVM-aware debugging capabilities will be disabled since no compiled "questa_uvm_pkg" can be found.
 # This also means that later if you turn on UVM-aware debugging your debug simulations may have
 # different random seeds from your non-debug simulations.
@@ -53,7 +53,7 @@ vsim -c -lib work test +UVM_TESTNAME=my_test -do "log -r /*; run -all; quit" -l 
 # 
 #       (Specify +UVM_NO_RELNOTES to turn off this notice)
 # 
-# UVM_INFO /filespace/c/ccheng93/UVM/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh(370) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+# UVM_INFO /filespace/c/ccheng93/UVM_Learning/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh(370) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
 # UVM_INFO @ 0: reporter [RNTST] Running test my_test...
 # UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
 # uvm_test_top: (my_test@443) {
@@ -259,7 +259,7 @@ vsim -c -lib work test +UVM_TESTNAME=my_test -do "log -r /*; run -all; quit" -l 
 # 
 # UVM_INFO my_monitor.sv(11) @ 1000: uvm_test_top.m_env.m_agent.m_moni [MON_RUN_PHASE] Monitor run!
 # UVM_INFO my_monitor.sv(11) @ 1100: uvm_test_top.m_env.m_agent.m_moni [MON_RUN_PHASE] Monitor run!
-# UVM_INFO /filespace/c/ccheng93/UVM/uvm_training_lab/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 1100: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO /filespace/c/ccheng93/UVM_Learning/uvm_training_lab/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 1100: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # 
 # --- UVM Report Summary ---
 # 
@@ -275,8 +275,7 @@ vsim -c -lib work test +UVM_TESTNAME=my_test -do "log -r /*; run -all; quit" -l 
 # [RNTST]     1
 # [TEST_DONE]     1
 # [UVMTOP]     1
-# ** Note: $finish    : /filespace/c/ccheng93/UVM/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh(430)
+# ** Note: $finish    : /filespace/c/ccheng93/UVM_Learning/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 1100 ns  Iteration: 48  Instance: /test
-# 1
-# Break in Task uvm_pkg/uvm_root::run_test at /filespace/c/ccheng93/UVM/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh line 430
-#  quit
+# End time: 21:39:31 on May 31,2024, Elapsed time: 0:00:38
+# Errors: 0, Warnings: 0
