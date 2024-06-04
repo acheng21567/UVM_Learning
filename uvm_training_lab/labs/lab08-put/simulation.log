@@ -1,0 +1,709 @@
+# vsim -c -lib work top "+UVM_TESTNAME=my_test" -do "log -r /*; run -all" -l simulation.log 
+# Start time: 20:39:12 on Jun 03,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: my_sequence.sv(11): (vopt-2240) Treating stand-alone use of function 'get' as an implicit VOID cast.
+# ** Warning: my_sequence.sv(23): (vopt-2240) Treating stand-alone use of function 'randomize' as an implicit VOID cast.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
+# ** Note: (vsim-8785) UVM-aware debugging capabilities will be disabled since no compiled "questa_uvm_pkg" can be found.
+# This also means that later if you turn on UVM-aware debugging your debug simulations may have
+# different random seeds from your non-debug simulations.
+# Loading sv_std.std
+# Loading work.dut_interface(fast)
+# Loading work.uvm_pkg(fast)
+# Loading work.top_sv_unit(fast)
+# Loading work.top(fast)
+# log -r /*
+#  run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO /filespace/c/ccheng93/UVM_Learning/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh(370) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+# UVM_INFO @ 0: reporter [RNTST] Running test my_test...
+# UVM_INFO my_env.sv(26) @ 0: uvm_test_top.m_env [CONVERAGE_ENABLE] The coverage function is enabled for this testcase
+# UVM_INFO my_env.sv(30) @ 0: uvm_test_top.m_env [CHECK_ENABLE] The check function is enabled for this testcase
+# pad cycles = 10
+# UVM_INFO my_env.sv(40) @ 0: uvm_test_top.m_env [ENV] Connect the agent and reference model...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# uvm_test_top: (my_test@450) {
+#   m_env: (my_env@460) {
+#     m_agent: (master_agent@482) {
+#       m_a2r_export: (uvm_blocking_put_export@490) @490 
+#       m_driv: (my_driver@649) {
+#         rsp_port: (uvm_analysis_port@666) @666 
+#         seq_item_port: (uvm_seq_item_pull_port@657) @657 
+#       }
+#       m_moni: (my_monitor@675) {
+#         m2r_port: (uvm_blocking_put_port@683) @683 
+#       }
+#       m_seqr: (uvm_sequencer@526) {
+#         rsp_export: (uvm_analysis_export@534) @534 
+#         seq_item_export: (uvm_seq_item_pull_imp@640) @640 
+#         arbitration_queue: - 
+#         lock_queue: - 
+#         num_last_reqs: 'd1 
+#         num_last_rsps: 'd1 
+#       }
+#     }
+#     ref_model: (my_reference_model@499) {
+#       i_m2r_imp: (uvm_blocking_put_imp@507) @507 
+#     }
+#   }
+# }
+# 
+# UVM_INFO my_driver.sv(61) @ 290: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @711                                   
+#   sa                           integral        4     'h9                                    
+#   da                           integral        4     'h9                                    
+#   payload                      da(integral)    4     -                                      
+#     [0]                        integral        8     'h45                                   
+#     [1]                        integral        8     'ha5                                   
+#     [2]                        integral        8     'h60                                   
+#     [3]                        integral        8     'hef                                   
+#   begin_time                   time            64    290                                    
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO my_monitor.sv(78) @ 1210: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @707 
+#   sa       integral        4     'h9  
+#   da       integral        4     'h9  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'h45 
+#     [1]    integral        8     'ha5 
+#     [2]    integral        8     'h60 
+#     [3]    integral        8     'hef 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(80) @ 1210: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(15) @ 1210: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @707 
+#   sa       integral        4     'h9  
+#   da       integral        4     'h9  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'h45 
+#     [1]    integral        8     'ha5 
+#     [2]    integral        8     'h60 
+#     [3]    integral        8     'hef 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 1210: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @743 
+#   sa          integral        4     'h9  
+#   da          integral        4     'h9  
+#   payload     da(integral)    4     -    
+#     [0]       integral        8     'h45 
+#     [1]       integral        8     'ha5 
+#     [2]       integral        8     'h60 
+#     [3]       integral        8     'hef 
+#   begin_time  time            64    290  
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(61) @ 1210: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @752                                   
+#   sa                           integral        4     'h8                                    
+#   da                           integral        4     'h3                                    
+#   payload                      da(integral)    2     -                                      
+#     [0]                        integral        8     'h5e                                   
+#     [1]                        integral        8     'he8                                   
+#   begin_time                   time            64    1210                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO my_monitor.sv(78) @ 1810: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @747 
+#   sa       integral        4     'h8  
+#   da       integral        4     'h3  
+#   payload  da(integral)    2     -    
+#     [0]    integral        8     'h5e 
+#     [1]    integral        8     'he8 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(80) @ 1810: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(15) @ 1810: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @747 
+#   sa       integral        4     'h8  
+#   da       integral        4     'h3  
+#   payload  da(integral)    2     -    
+#     [0]    integral        8     'h5e 
+#     [1]    integral        8     'he8 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 1810: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @760 
+#   sa          integral        4     'h8  
+#   da          integral        4     'h3  
+#   payload     da(integral)    2     -    
+#     [0]       integral        8     'h5e 
+#     [1]       integral        8     'he8 
+#   begin_time  time            64    1210 
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(61) @ 1810: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @768                                   
+#   sa                           integral        4     'he                                    
+#   da                           integral        4     'h5                                    
+#   payload                      da(integral)    3     -                                      
+#     [0]                        integral        8     'hce                                   
+#     [1]                        integral        8     'h24                                   
+#     [2]                        integral        8     'hdf                                   
+#   begin_time                   time            64    1810                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO my_monitor.sv(78) @ 2570: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @764 
+#   sa       integral        4     'he  
+#   da       integral        4     'h5  
+#   payload  da(integral)    3     -    
+#     [0]    integral        8     'hce 
+#     [1]    integral        8     'h24 
+#     [2]    integral        8     'hdf 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(80) @ 2570: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(15) @ 2570: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @764 
+#   sa       integral        4     'he  
+#   da       integral        4     'h5  
+#   payload  da(integral)    3     -    
+#     [0]    integral        8     'hce 
+#     [1]    integral        8     'h24 
+#     [2]    integral        8     'hdf 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 2570: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @776 
+#   sa          integral        4     'he  
+#   da          integral        4     'h5  
+#   payload     da(integral)    3     -    
+#     [0]       integral        8     'hce 
+#     [1]       integral        8     'h24 
+#     [2]       integral        8     'hdf 
+#   begin_time  time            64    1810 
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(61) @ 2570: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @784                                   
+#   sa                           integral        4     'hc                                    
+#   da                           integral        4     'h0                                    
+#   payload                      da(integral)    2     -                                      
+#     [0]                        integral        8     'h4f                                   
+#     [1]                        integral        8     'ha9                                   
+#   begin_time                   time            64    2570                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO my_monitor.sv(78) @ 3170: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @780 
+#   sa       integral        4     'hc  
+#   da       integral        4     'h0  
+#   payload  da(integral)    2     -    
+#     [0]    integral        8     'h4f 
+#     [1]    integral        8     'ha9 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(80) @ 3170: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(15) @ 3170: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @780 
+#   sa       integral        4     'hc  
+#   da       integral        4     'h0  
+#   payload  da(integral)    2     -    
+#     [0]    integral        8     'h4f 
+#     [1]    integral        8     'ha9 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 3170: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @792 
+#   sa          integral        4     'hc  
+#   da          integral        4     'h0  
+#   payload     da(integral)    2     -    
+#     [0]       integral        8     'h4f 
+#     [1]       integral        8     'ha9 
+#   begin_time  time            64    2570 
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(61) @ 3170: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @800                                   
+#   sa                           integral        4     'h5                                    
+#   da                           integral        4     'h4                                    
+#   payload                      da(integral)    3     -                                      
+#     [0]                        integral        8     'hc5                                   
+#     [1]                        integral        8     'h53                                   
+#     [2]                        integral        8     'hf2                                   
+#   begin_time                   time            64    3170                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO my_monitor.sv(78) @ 3930: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @796 
+#   sa       integral        4     'h5  
+#   da       integral        4     'h4  
+#   payload  da(integral)    3     -    
+#     [0]    integral        8     'hc5 
+#     [1]    integral        8     'h53 
+#     [2]    integral        8     'hf2 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(80) @ 3930: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(15) @ 3930: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @796 
+#   sa       integral        4     'h5  
+#   da       integral        4     'h4  
+#   payload  da(integral)    3     -    
+#     [0]    integral        8     'hc5 
+#     [1]    integral        8     'h53 
+#     [2]    integral        8     'hf2 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 3930: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @808 
+#   sa          integral        4     'h5  
+#   da          integral        4     'h4  
+#   payload     da(integral)    3     -    
+#     [0]       integral        8     'hc5 
+#     [1]       integral        8     'h53 
+#     [2]       integral        8     'hf2 
+#   begin_time  time            64    3170 
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(61) @ 3930: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @816                                   
+#   sa                           integral        4     'h6                                    
+#   da                           integral        4     'h1                                    
+#   payload                      da(integral)    2     -                                      
+#     [0]                        integral        8     'hde                                   
+#     [1]                        integral        8     'ha3                                   
+#   begin_time                   time            64    3930                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO my_monitor.sv(78) @ 4530: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @812 
+#   sa       integral        4     'h6  
+#   da       integral        4     'h1  
+#   payload  da(integral)    2     -    
+#     [0]    integral        8     'hde 
+#     [1]    integral        8     'ha3 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(80) @ 4530: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(15) @ 4530: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @812 
+#   sa       integral        4     'h6  
+#   da       integral        4     'h1  
+#   payload  da(integral)    2     -    
+#     [0]    integral        8     'hde 
+#     [1]    integral        8     'ha3 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 4530: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @824 
+#   sa          integral        4     'h6  
+#   da          integral        4     'h1  
+#   payload     da(integral)    2     -    
+#     [0]       integral        8     'hde 
+#     [1]       integral        8     'ha3 
+#   begin_time  time            64    3930 
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(61) @ 4530: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @832                                   
+#   sa                           integral        4     'hd                                    
+#   da                           integral        4     'h9                                    
+#   payload                      da(integral)    3     -                                      
+#     [0]                        integral        8     'hdf                                   
+#     [1]                        integral        8     'hc2                                   
+#     [2]                        integral        8     'hfd                                   
+#   begin_time                   time            64    4530                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO my_monitor.sv(78) @ 5290: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @828 
+#   sa       integral        4     'hd  
+#   da       integral        4     'h9  
+#   payload  da(integral)    3     -    
+#     [0]    integral        8     'hdf 
+#     [1]    integral        8     'hc2 
+#     [2]    integral        8     'hfd 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(80) @ 5290: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(15) @ 5290: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @828 
+#   sa       integral        4     'hd  
+#   da       integral        4     'h9  
+#   payload  da(integral)    3     -    
+#     [0]    integral        8     'hdf 
+#     [1]    integral        8     'hc2 
+#     [2]    integral        8     'hfd 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 5290: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @840 
+#   sa          integral        4     'hd  
+#   da          integral        4     'h9  
+#   payload     da(integral)    3     -    
+#     [0]       integral        8     'hdf 
+#     [1]       integral        8     'hc2 
+#     [2]       integral        8     'hfd 
+#   begin_time  time            64    4530 
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(61) @ 5290: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @848                                   
+#   sa                           integral        4     'h6                                    
+#   da                           integral        4     'h6                                    
+#   payload                      da(integral)    4     -                                      
+#     [0]                        integral        8     'hf9                                   
+#     [1]                        integral        8     'h23                                   
+#     [2]                        integral        8     'h65                                   
+#     [3]                        integral        8     'hc4                                   
+#   begin_time                   time            64    5290                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO my_monitor.sv(78) @ 6210: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @844 
+#   sa       integral        4     'h6  
+#   da       integral        4     'h6  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'hf9 
+#     [1]    integral        8     'h23 
+#     [2]    integral        8     'h65 
+#     [3]    integral        8     'hc4 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(80) @ 6210: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(15) @ 6210: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @844 
+#   sa       integral        4     'h6  
+#   da       integral        4     'h6  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'hf9 
+#     [1]    integral        8     'h23 
+#     [2]    integral        8     'h65 
+#     [3]    integral        8     'hc4 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 6210: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @856 
+#   sa          integral        4     'h6  
+#   da          integral        4     'h6  
+#   payload     da(integral)    4     -    
+#     [0]       integral        8     'hf9 
+#     [1]       integral        8     'h23 
+#     [2]       integral        8     'h65 
+#     [3]       integral        8     'hc4 
+#   begin_time  time            64    5290 
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(61) @ 6210: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @864                                   
+#   sa                           integral        4     'h3                                    
+#   da                           integral        4     'he                                    
+#   payload                      da(integral)    4     -                                      
+#     [0]                        integral        8     'h24                                   
+#     [1]                        integral        8     'h86                                   
+#     [2]                        integral        8     'h3f                                   
+#     [3]                        integral        8     'h11                                   
+#   begin_time                   time            64    6210                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO my_monitor.sv(78) @ 7130: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @860 
+#   sa       integral        4     'h3  
+#   da       integral        4     'he  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'h24 
+#     [1]    integral        8     'h86 
+#     [2]    integral        8     'h3f 
+#     [3]    integral        8     'h11 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(80) @ 7130: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(15) @ 7130: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @860 
+#   sa       integral        4     'h3  
+#   da       integral        4     'he  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'h24 
+#     [1]    integral        8     'h86 
+#     [2]    integral        8     'h3f 
+#     [3]    integral        8     'h11 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 7130: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @872 
+#   sa          integral        4     'h3  
+#   da          integral        4     'he  
+#   payload     da(integral)    4     -    
+#     [0]       integral        8     'h24 
+#     [1]       integral        8     'h86 
+#     [2]       integral        8     'h3f 
+#     [3]       integral        8     'h11 
+#   begin_time  time            64    6210 
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(61) @ 7130: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @880                                   
+#   sa                           integral        4     'h6                                    
+#   da                           integral        4     'ha                                    
+#   payload                      da(integral)    4     -                                      
+#     [0]                        integral        8     'h14                                   
+#     [1]                        integral        8     'h84                                   
+#     [2]                        integral        8     'h93                                   
+#     [3]                        integral        8     'h92                                   
+#   begin_time                   time            64    7130                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO my_monitor.sv(78) @ 8050: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @876 
+#   sa       integral        4     'h6  
+#   da       integral        4     'ha  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'h14 
+#     [1]    integral        8     'h84 
+#     [2]    integral        8     'h93 
+#     [3]    integral        8     'h92 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(80) @ 8050: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(15) @ 8050: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @876 
+#   sa       integral        4     'h6  
+#   da       integral        4     'ha  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'h14 
+#     [1]    integral        8     'h84 
+#     [2]    integral        8     'h93 
+#     [3]    integral        8     'h92 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 8050: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @888 
+#   sa          integral        4     'h6  
+#   da          integral        4     'ha  
+#   payload     da(integral)    4     -    
+#     [0]       integral        8     'h14 
+#     [1]       integral        8     'h84 
+#     [2]       integral        8     'h93 
+#     [3]       integral        8     'h92 
+#   begin_time  time            64    7130 
+# -----------------------------------------
+# 
+# UVM_INFO /filespace/c/ccheng93/UVM_Learning/uvm_training_lab/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 8150: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   57
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [CHECK_ENABLE]     1
+# [CONVERAGE_ENABLE]     1
+# [DRV_RUN_PHASE]    10
+# [ENV]     1
+# [Monitor]    20
+# [NO_DPI_TSTNAME]     1
+# [REF_REPORT]    10
+# [RNTST]     1
+# [SEQ]    10
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# ** Note: $finish    : /filespace/c/ccheng93/UVM_Learning/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 8150 ns  Iteration: 59  Instance: /top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at /filespace/c/ccheng93/UVM_Learning/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh line 430
+
