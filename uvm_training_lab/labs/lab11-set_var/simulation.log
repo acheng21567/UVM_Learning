@@ -5599,3 +5599,5 @@ vsim -c -lib work top +UVM_TESTNAME=my_test -do "log -r /*; run -all" -l simulat
 #    Time: 30370 ns  Iteration: 66  Instance: /top
 # 1
 # Break in Task uvm_pkg/uvm_root::run_test at /filespace/c/ccheng93/UVM_Learning/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh line 430
+# End time: 21:31:41 on Jun 04,2024, Elapsed time: 0:34:16
+# Errors: 0, Warnings: 8
