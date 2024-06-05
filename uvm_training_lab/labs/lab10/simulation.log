@@ -1,0 +1,941 @@
+# vsim -c -lib work top "+UVM_TESTNAME=my_test" -do "log -r /*; run -all" -l simulation.log 
+# Start time: 18:06:52 on Jun 04,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: my_sequence.sv(11): (vopt-2240) Treating stand-alone use of function 'get' as an implicit VOID cast.
+# ** Warning: my_sequence.sv(23): (vopt-2240) Treating stand-alone use of function 'randomize' as an implicit VOID cast.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
+# ** Note: (vsim-8785) UVM-aware debugging capabilities will be disabled since no compiled "questa_uvm_pkg" can be found.
+# This also means that later if you turn on UVM-aware debugging your debug simulations may have
+# different random seeds from your non-debug simulations.
+# Loading sv_std.std
+# Loading work.dut_interface(fast)
+# Loading work.uvm_pkg(fast)
+# Loading work.top_sv_unit(fast)
+# Loading work.top(fast)
+# log -r /*
+#  run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO /filespace/c/ccheng93/UVM_Learning/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh(370) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+# UVM_INFO @ 0: reporter [RNTST] Running test my_test...
+# UVM_INFO my_env.sv(35) @ 0: uvm_test_top.m_env [CONVERAGE_ENABLE] The coverage function is enabled for this testcase
+# UVM_INFO my_env.sv(39) @ 0: uvm_test_top.m_env [CHECK_ENABLE] The check function is enabled for this testcase
+# pad cycles = 10
+# UVM_INFO my_env.sv(51) @ 0: uvm_test_top.m_env [ENV] Connect the agent and reference model...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# uvm_test_top: (my_test@464) {
+#   m_env: (my_env@474) {
+#     m_agent: (master_agent@629) {
+#       m_a2r_export: (uvm_blocking_put_export@637) @637 
+#       m_driv: (my_driver@822) {
+#         rsp_port: (uvm_analysis_port@839) @839 
+#         seq_item_port: (uvm_seq_item_pull_port@830) @830 
+#       }
+#       m_moni: (my_monitor@848) {
+#         m2r_port: (uvm_blocking_put_port@856) @856 
+#       }
+#       m_seqr: (uvm_sequencer@699) {
+#         rsp_export: (uvm_analysis_export@707) @707 
+#         seq_item_export: (uvm_seq_item_pull_imp@813) @813 
+#         arbitration_queue: - 
+#         lock_queue: - 
+#         num_last_reqs: 'd1 
+#         num_last_rsps: 'd1 
+#       }
+#     }
+#     r2s_fifo: (uvm_tlm_analysis_fifo #(T)@482) {
+#       analysis_export: (uvm_analysis_imp@526) @526 
+#       get_ap: (uvm_analysis_port@517) @517 
+#       get_peek_export: (uvm_get_peek_imp@499) @499 
+#       put_ap: (uvm_analysis_port@508) @508 
+#       put_export: (uvm_put_imp@490) @490 
+#     }
+#     ref_model: (my_reference_model@663) {
+#       i_m2r_imp: (uvm_blocking_put_imp@671) @671 
+#       r2s_port: (uvm_blocking_put_port@680) @680 
+#     }
+#     s_a2s_fifo: (uvm_tlm_analysis_fifo #(T)@535) {
+#       analysis_export: (uvm_analysis_imp@579) @579 
+#       get_ap: (uvm_analysis_port@570) @570 
+#       get_peek_export: (uvm_get_peek_imp@552) @552 
+#       put_ap: (uvm_analysis_port@561) @561 
+#       put_export: (uvm_put_imp@543) @543 
+#     }
+#     s_agent: (slave_agent@646) {
+#       m_moni: (out_monitor@877) {
+#         m2s_port: (uvm_blocking_put_port@885) @885 
+#       }
+#       s_a2s_export: (uvm_blocking_put_export@654) @654 
+#     }
+#     sb: (my_scoreboard@603) {
+#       r2s_port: (uvm_blocking_get_port@611) @611 
+#       s_a2s_port: (uvm_blocking_get_port@620) @620 
+#     }
+#   }
+# }
+# 
+# UVM_INFO my_scoreboard.sv(19) @ 0: uvm_test_top.m_env.sb [SCOREBOARD] Now waiting for getting the transaction from slave agent and reference model
+# UVM_INFO my_driver.sv(64) @ 290: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @910                                   
+#   sa                           integral        4     'h9                                    
+#   da                           integral        4     'h9                                    
+#   payload                      da(integral)    4     -                                      
+#     [0]                        integral        8     'h45                                   
+#     [1]                        integral        8     'ha5                                   
+#     [2]                        integral        8     'h60                                   
+#     [3]                        integral        8     'hef                                   
+#   begin_time                   time            64    290                                    
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO my_monitor.sv(80) @ 1210: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @906 
+#   sa       integral        4     'h9  
+#   da       integral        4     'h9  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'h45 
+#     [1]    integral        8     'ha5 
+#     [2]    integral        8     'h60 
+#     [3]    integral        8     'hef 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(82) @ 1210: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(19) @ 1210: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @906 
+#   sa       integral        4     'h9  
+#   da       integral        4     'h9  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'h45 
+#     [1]    integral        8     'ha5 
+#     [2]    integral        8     'h60 
+#     [3]    integral        8     'hef 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 1210: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @942 
+#   sa          integral        4     'h9  
+#   da          integral        4     'h9  
+#   payload     da(integral)    4     -    
+#     [0]       integral        8     'h45 
+#     [1]       integral        8     'ha5 
+#     [2]       integral        8     'h60 
+#     [3]       integral        8     'hef 
+#   begin_time  time            64    290  
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(64) @ 1210: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @951                                   
+#   sa                           integral        4     'h8                                    
+#   da                           integral        4     'h3                                    
+#   payload                      da(integral)    2     -                                      
+#     [0]                        integral        8     'h5e                                   
+#     [1]                        integral        8     'he8                                   
+#   begin_time                   time            64    1210                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO out_monitor.sv(75) @ 1250: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] 
+# Out monitor Got An Output Transaction 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @900 
+#   sa       integral        4     'h0  
+#   da       integral        4     'h9  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'h45 
+#     [1]    integral        8     'ha5 
+#     [2]    integral        8     'h60 
+#     [3]    integral        8     'hef 
+# --------------------------------------
+# 
+# UVM_INFO out_monitor.sv(76) @ 1250: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] Now Out monitor send the transaction to the Scoreboard!
+# UVM_INFO my_scoreboard.sv(24) @ 1250: uvm_test_top.m_env.sb [CHECK] DUT has completed a transaction. Now check the output...
+# UVM_INFO @ 1250: reporter [MISCMP] Miscompare for tr.sa: lhs = 'h9 : rhs = 'h0
+# UVM_INFO @ 1250: reporter [MISCMP] 1 Miscompare(s) for object tr@900 vs. tr@906
+# UVM_INFO my_scoreboard.sv(30) @ 1250: uvm_test_top.m_env.sb [CHECK_ERROR] Checking is done. But the result does not match the expected value! Please check your dut
+# UVM_INFO my_scoreboard.sv(19) @ 1250: uvm_test_top.m_env.sb [SCOREBOARD] Now waiting for getting the transaction from slave agent and reference model
+# UVM_INFO my_monitor.sv(80) @ 1810: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @946 
+#   sa       integral        4     'h8  
+#   da       integral        4     'h3  
+#   payload  da(integral)    2     -    
+#     [0]    integral        8     'h5e 
+#     [1]    integral        8     'he8 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(82) @ 1810: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(19) @ 1810: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @946 
+#   sa       integral        4     'h8  
+#   da       integral        4     'h3  
+#   payload  da(integral)    2     -    
+#     [0]    integral        8     'h5e 
+#     [1]    integral        8     'he8 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 1810: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @963 
+#   sa          integral        4     'h8  
+#   da          integral        4     'h3  
+#   payload     da(integral)    2     -    
+#     [0]       integral        8     'h5e 
+#     [1]       integral        8     'he8 
+#   begin_time  time            64    1210 
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(64) @ 1810: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @971                                   
+#   sa                           integral        4     'he                                    
+#   da                           integral        4     'h5                                    
+#   payload                      da(integral)    3     -                                      
+#     [0]                        integral        8     'hce                                   
+#     [1]                        integral        8     'h24                                   
+#     [2]                        integral        8     'hdf                                   
+#   begin_time                   time            64    1810                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO out_monitor.sv(75) @ 1850: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] 
+# Out monitor Got An Output Transaction 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @955 
+#   sa       integral        4     'h0  
+#   da       integral        4     'h3  
+#   payload  da(integral)    2     -    
+#     [0]    integral        8     'h5e 
+#     [1]    integral        8     'he8 
+# --------------------------------------
+# 
+# UVM_INFO out_monitor.sv(76) @ 1850: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] Now Out monitor send the transaction to the Scoreboard!
+# UVM_INFO my_scoreboard.sv(24) @ 1850: uvm_test_top.m_env.sb [CHECK] DUT has completed a transaction. Now check the output...
+# UVM_INFO @ 1850: reporter [MISCMP] Miscompare for tr.sa: lhs = 'h8 : rhs = 'h0
+# UVM_INFO @ 1850: reporter [MISCMP] 1 Miscompare(s) for object tr@955 vs. tr@946
+# UVM_INFO my_scoreboard.sv(30) @ 1850: uvm_test_top.m_env.sb [CHECK_ERROR] Checking is done. But the result does not match the expected value! Please check your dut
+# UVM_INFO my_scoreboard.sv(19) @ 1850: uvm_test_top.m_env.sb [SCOREBOARD] Now waiting for getting the transaction from slave agent and reference model
+# UVM_INFO my_monitor.sv(80) @ 2570: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @967 
+#   sa       integral        4     'he  
+#   da       integral        4     'h5  
+#   payload  da(integral)    3     -    
+#     [0]    integral        8     'hce 
+#     [1]    integral        8     'h24 
+#     [2]    integral        8     'hdf 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(82) @ 2570: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(19) @ 2570: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @967 
+#   sa       integral        4     'he  
+#   da       integral        4     'h5  
+#   payload  da(integral)    3     -    
+#     [0]    integral        8     'hce 
+#     [1]    integral        8     'h24 
+#     [2]    integral        8     'hdf 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 2570: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @983 
+#   sa          integral        4     'he  
+#   da          integral        4     'h5  
+#   payload     da(integral)    3     -    
+#     [0]       integral        8     'hce 
+#     [1]       integral        8     'h24 
+#     [2]       integral        8     'hdf 
+#   begin_time  time            64    1810 
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(64) @ 2570: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @991                                   
+#   sa                           integral        4     'hc                                    
+#   da                           integral        4     'h0                                    
+#   payload                      da(integral)    2     -                                      
+#     [0]                        integral        8     'h4f                                   
+#     [1]                        integral        8     'ha9                                   
+#   begin_time                   time            64    2570                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO out_monitor.sv(75) @ 2610: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] 
+# Out monitor Got An Output Transaction 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @975 
+#   sa       integral        4     'h0  
+#   da       integral        4     'h5  
+#   payload  da(integral)    3     -    
+#     [0]    integral        8     'hce 
+#     [1]    integral        8     'h24 
+#     [2]    integral        8     'hdf 
+# --------------------------------------
+# 
+# UVM_INFO out_monitor.sv(76) @ 2610: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] Now Out monitor send the transaction to the Scoreboard!
+# UVM_INFO my_scoreboard.sv(24) @ 2610: uvm_test_top.m_env.sb [CHECK] DUT has completed a transaction. Now check the output...
+# UVM_INFO @ 2610: reporter [MISCMP] Miscompare for tr.sa: lhs = 'he : rhs = 'h0
+# UVM_INFO @ 2610: reporter [MISCMP] 1 Miscompare(s) for object tr@975 vs. tr@967
+# UVM_INFO my_scoreboard.sv(30) @ 2610: uvm_test_top.m_env.sb [CHECK_ERROR] Checking is done. But the result does not match the expected value! Please check your dut
+# UVM_INFO my_scoreboard.sv(19) @ 2610: uvm_test_top.m_env.sb [SCOREBOARD] Now waiting for getting the transaction from slave agent and reference model
+# UVM_INFO my_monitor.sv(80) @ 3170: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @987 
+#   sa       integral        4     'hc  
+#   da       integral        4     'h0  
+#   payload  da(integral)    2     -    
+#     [0]    integral        8     'h4f 
+#     [1]    integral        8     'ha9 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(82) @ 3170: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(19) @ 3170: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @987 
+#   sa       integral        4     'hc  
+#   da       integral        4     'h0  
+#   payload  da(integral)    2     -    
+#     [0]    integral        8     'h4f 
+#     [1]    integral        8     'ha9 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 3170: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @1003
+#   sa          integral        4     'hc  
+#   da          integral        4     'h0  
+#   payload     da(integral)    2     -    
+#     [0]       integral        8     'h4f 
+#     [1]       integral        8     'ha9 
+#   begin_time  time            64    2570 
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(64) @ 3170: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @1011                                  
+#   sa                           integral        4     'h5                                    
+#   da                           integral        4     'h4                                    
+#   payload                      da(integral)    3     -                                      
+#     [0]                        integral        8     'hc5                                   
+#     [1]                        integral        8     'h53                                   
+#     [2]                        integral        8     'hf2                                   
+#   begin_time                   time            64    3170                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO out_monitor.sv(75) @ 3210: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] 
+# Out monitor Got An Output Transaction 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @995 
+#   sa       integral        4     'h0  
+#   da       integral        4     'h0  
+#   payload  da(integral)    2     -    
+#     [0]    integral        8     'h4f 
+#     [1]    integral        8     'ha9 
+# --------------------------------------
+# 
+# UVM_INFO out_monitor.sv(76) @ 3210: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] Now Out monitor send the transaction to the Scoreboard!
+# UVM_INFO my_scoreboard.sv(24) @ 3210: uvm_test_top.m_env.sb [CHECK] DUT has completed a transaction. Now check the output...
+# UVM_INFO @ 3210: reporter [MISCMP] Miscompare for tr.sa: lhs = 'hc : rhs = 'h0
+# UVM_INFO @ 3210: reporter [MISCMP] 1 Miscompare(s) for object tr@995 vs. tr@987
+# UVM_INFO my_scoreboard.sv(30) @ 3210: uvm_test_top.m_env.sb [CHECK_ERROR] Checking is done. But the result does not match the expected value! Please check your dut
+# UVM_INFO my_scoreboard.sv(19) @ 3210: uvm_test_top.m_env.sb [SCOREBOARD] Now waiting for getting the transaction from slave agent and reference model
+# UVM_INFO my_monitor.sv(80) @ 3930: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1007
+#   sa       integral        4     'h5  
+#   da       integral        4     'h4  
+#   payload  da(integral)    3     -    
+#     [0]    integral        8     'hc5 
+#     [1]    integral        8     'h53 
+#     [2]    integral        8     'hf2 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(82) @ 3930: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(19) @ 3930: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1007
+#   sa       integral        4     'h5  
+#   da       integral        4     'h4  
+#   payload  da(integral)    3     -    
+#     [0]    integral        8     'hc5 
+#     [1]    integral        8     'h53 
+#     [2]    integral        8     'hf2 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 3930: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @1023
+#   sa          integral        4     'h5  
+#   da          integral        4     'h4  
+#   payload     da(integral)    3     -    
+#     [0]       integral        8     'hc5 
+#     [1]       integral        8     'h53 
+#     [2]       integral        8     'hf2 
+#   begin_time  time            64    3170 
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(64) @ 3930: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @1031                                  
+#   sa                           integral        4     'h6                                    
+#   da                           integral        4     'h1                                    
+#   payload                      da(integral)    2     -                                      
+#     [0]                        integral        8     'hde                                   
+#     [1]                        integral        8     'ha3                                   
+#   begin_time                   time            64    3930                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO out_monitor.sv(75) @ 3970: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] 
+# Out monitor Got An Output Transaction 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1015
+#   sa       integral        4     'h0  
+#   da       integral        4     'h4  
+#   payload  da(integral)    3     -    
+#     [0]    integral        8     'hc5 
+#     [1]    integral        8     'h53 
+#     [2]    integral        8     'hf2 
+# --------------------------------------
+# 
+# UVM_INFO out_monitor.sv(76) @ 3970: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] Now Out monitor send the transaction to the Scoreboard!
+# UVM_INFO my_scoreboard.sv(24) @ 3970: uvm_test_top.m_env.sb [CHECK] DUT has completed a transaction. Now check the output...
+# UVM_INFO @ 3970: reporter [MISCMP] Miscompare for tr.sa: lhs = 'h5 : rhs = 'h0
+# UVM_INFO @ 3970: reporter [MISCMP] 1 Miscompare(s) for object tr@1015 vs. tr@1007
+# UVM_INFO my_scoreboard.sv(30) @ 3970: uvm_test_top.m_env.sb [CHECK_ERROR] Checking is done. But the result does not match the expected value! Please check your dut
+# UVM_INFO my_scoreboard.sv(19) @ 3970: uvm_test_top.m_env.sb [SCOREBOARD] Now waiting for getting the transaction from slave agent and reference model
+# UVM_INFO my_monitor.sv(80) @ 4530: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1027
+#   sa       integral        4     'h6  
+#   da       integral        4     'h1  
+#   payload  da(integral)    2     -    
+#     [0]    integral        8     'hde 
+#     [1]    integral        8     'ha3 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(82) @ 4530: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(19) @ 4530: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1027
+#   sa       integral        4     'h6  
+#   da       integral        4     'h1  
+#   payload  da(integral)    2     -    
+#     [0]    integral        8     'hde 
+#     [1]    integral        8     'ha3 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 4530: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @1043
+#   sa          integral        4     'h6  
+#   da          integral        4     'h1  
+#   payload     da(integral)    2     -    
+#     [0]       integral        8     'hde 
+#     [1]       integral        8     'ha3 
+#   begin_time  time            64    3930 
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(64) @ 4530: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @1051                                  
+#   sa                           integral        4     'hd                                    
+#   da                           integral        4     'h9                                    
+#   payload                      da(integral)    3     -                                      
+#     [0]                        integral        8     'hdf                                   
+#     [1]                        integral        8     'hc2                                   
+#     [2]                        integral        8     'hfd                                   
+#   begin_time                   time            64    4530                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO out_monitor.sv(75) @ 4570: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] 
+# Out monitor Got An Output Transaction 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1035
+#   sa       integral        4     'h0  
+#   da       integral        4     'h1  
+#   payload  da(integral)    2     -    
+#     [0]    integral        8     'hde 
+#     [1]    integral        8     'ha3 
+# --------------------------------------
+# 
+# UVM_INFO out_monitor.sv(76) @ 4570: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] Now Out monitor send the transaction to the Scoreboard!
+# UVM_INFO my_scoreboard.sv(24) @ 4570: uvm_test_top.m_env.sb [CHECK] DUT has completed a transaction. Now check the output...
+# UVM_INFO @ 4570: reporter [MISCMP] Miscompare for tr.sa: lhs = 'h6 : rhs = 'h0
+# UVM_INFO @ 4570: reporter [MISCMP] 1 Miscompare(s) for object tr@1035 vs. tr@1027
+# UVM_INFO my_scoreboard.sv(30) @ 4570: uvm_test_top.m_env.sb [CHECK_ERROR] Checking is done. But the result does not match the expected value! Please check your dut
+# UVM_INFO my_scoreboard.sv(19) @ 4570: uvm_test_top.m_env.sb [SCOREBOARD] Now waiting for getting the transaction from slave agent and reference model
+# UVM_INFO my_monitor.sv(80) @ 5290: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1047
+#   sa       integral        4     'hd  
+#   da       integral        4     'h9  
+#   payload  da(integral)    3     -    
+#     [0]    integral        8     'hdf 
+#     [1]    integral        8     'hc2 
+#     [2]    integral        8     'hfd 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(82) @ 5290: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(19) @ 5290: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1047
+#   sa       integral        4     'hd  
+#   da       integral        4     'h9  
+#   payload  da(integral)    3     -    
+#     [0]    integral        8     'hdf 
+#     [1]    integral        8     'hc2 
+#     [2]    integral        8     'hfd 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 5290: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @1063
+#   sa          integral        4     'hd  
+#   da          integral        4     'h9  
+#   payload     da(integral)    3     -    
+#     [0]       integral        8     'hdf 
+#     [1]       integral        8     'hc2 
+#     [2]       integral        8     'hfd 
+#   begin_time  time            64    4530 
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(64) @ 5290: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @1071                                  
+#   sa                           integral        4     'h6                                    
+#   da                           integral        4     'h6                                    
+#   payload                      da(integral)    4     -                                      
+#     [0]                        integral        8     'hf9                                   
+#     [1]                        integral        8     'h23                                   
+#     [2]                        integral        8     'h65                                   
+#     [3]                        integral        8     'hc4                                   
+#   begin_time                   time            64    5290                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO out_monitor.sv(75) @ 5330: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] 
+# Out monitor Got An Output Transaction 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1055
+#   sa       integral        4     'h0  
+#   da       integral        4     'h9  
+#   payload  da(integral)    3     -    
+#     [0]    integral        8     'hdf 
+#     [1]    integral        8     'hc2 
+#     [2]    integral        8     'hfd 
+# --------------------------------------
+# 
+# UVM_INFO out_monitor.sv(76) @ 5330: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] Now Out monitor send the transaction to the Scoreboard!
+# UVM_INFO my_scoreboard.sv(24) @ 5330: uvm_test_top.m_env.sb [CHECK] DUT has completed a transaction. Now check the output...
+# UVM_INFO @ 5330: reporter [MISCMP] Miscompare for tr.sa: lhs = 'hd : rhs = 'h0
+# UVM_INFO @ 5330: reporter [MISCMP] 1 Miscompare(s) for object tr@1055 vs. tr@1047
+# UVM_INFO my_scoreboard.sv(30) @ 5330: uvm_test_top.m_env.sb [CHECK_ERROR] Checking is done. But the result does not match the expected value! Please check your dut
+# UVM_INFO my_scoreboard.sv(19) @ 5330: uvm_test_top.m_env.sb [SCOREBOARD] Now waiting for getting the transaction from slave agent and reference model
+# UVM_INFO my_monitor.sv(80) @ 6210: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1067
+#   sa       integral        4     'h6  
+#   da       integral        4     'h6  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'hf9 
+#     [1]    integral        8     'h23 
+#     [2]    integral        8     'h65 
+#     [3]    integral        8     'hc4 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(82) @ 6210: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(19) @ 6210: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1067
+#   sa       integral        4     'h6  
+#   da       integral        4     'h6  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'hf9 
+#     [1]    integral        8     'h23 
+#     [2]    integral        8     'h65 
+#     [3]    integral        8     'hc4 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 6210: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @1083
+#   sa          integral        4     'h6  
+#   da          integral        4     'h6  
+#   payload     da(integral)    4     -    
+#     [0]       integral        8     'hf9 
+#     [1]       integral        8     'h23 
+#     [2]       integral        8     'h65 
+#     [3]       integral        8     'hc4 
+#   begin_time  time            64    5290 
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(64) @ 6210: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @1091                                  
+#   sa                           integral        4     'h3                                    
+#   da                           integral        4     'he                                    
+#   payload                      da(integral)    4     -                                      
+#     [0]                        integral        8     'h24                                   
+#     [1]                        integral        8     'h86                                   
+#     [2]                        integral        8     'h3f                                   
+#     [3]                        integral        8     'h11                                   
+#   begin_time                   time            64    6210                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO out_monitor.sv(75) @ 6250: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] 
+# Out monitor Got An Output Transaction 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1075
+#   sa       integral        4     'h0  
+#   da       integral        4     'h6  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'hf9 
+#     [1]    integral        8     'h23 
+#     [2]    integral        8     'h65 
+#     [3]    integral        8     'hc4 
+# --------------------------------------
+# 
+# UVM_INFO out_monitor.sv(76) @ 6250: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] Now Out monitor send the transaction to the Scoreboard!
+# UVM_INFO my_scoreboard.sv(24) @ 6250: uvm_test_top.m_env.sb [CHECK] DUT has completed a transaction. Now check the output...
+# UVM_INFO @ 6250: reporter [MISCMP] Miscompare for tr.sa: lhs = 'h6 : rhs = 'h0
+# UVM_INFO @ 6250: reporter [MISCMP] 1 Miscompare(s) for object tr@1075 vs. tr@1067
+# UVM_INFO my_scoreboard.sv(30) @ 6250: uvm_test_top.m_env.sb [CHECK_ERROR] Checking is done. But the result does not match the expected value! Please check your dut
+# UVM_INFO my_scoreboard.sv(19) @ 6250: uvm_test_top.m_env.sb [SCOREBOARD] Now waiting for getting the transaction from slave agent and reference model
+# UVM_INFO my_monitor.sv(80) @ 7130: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1087
+#   sa       integral        4     'h3  
+#   da       integral        4     'he  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'h24 
+#     [1]    integral        8     'h86 
+#     [2]    integral        8     'h3f 
+#     [3]    integral        8     'h11 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(82) @ 7130: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(19) @ 7130: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1087
+#   sa       integral        4     'h3  
+#   da       integral        4     'he  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'h24 
+#     [1]    integral        8     'h86 
+#     [2]    integral        8     'h3f 
+#     [3]    integral        8     'h11 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 7130: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @1103
+#   sa          integral        4     'h3  
+#   da          integral        4     'he  
+#   payload     da(integral)    4     -    
+#     [0]       integral        8     'h24 
+#     [1]       integral        8     'h86 
+#     [2]       integral        8     'h3f 
+#     [3]       integral        8     'h11 
+#   begin_time  time            64    6210 
+# -----------------------------------------
+# 
+# UVM_INFO my_driver.sv(64) @ 7130: uvm_test_top.m_env.m_agent.m_driv [DRV_RUN_PHASE] --------------------------------------------------------------------------------------------
+# Name                           Type            Size  Value                                  
+# --------------------------------------------------------------------------------------------
+# tr                             my_transaction  -     @1111                                  
+#   sa                           integral        4     'h6                                    
+#   da                           integral        4     'ha                                    
+#   payload                      da(integral)    4     -                                      
+#     [0]                        integral        8     'h14                                   
+#     [1]                        integral        8     'h84                                   
+#     [2]                        integral        8     'h93                                   
+#     [3]                        integral        8     'h92                                   
+#   begin_time                   time            64    7130                                   
+#   depth                        int             32    'd2                                    
+#   parent sequence (name)       string          5     m_seq                                  
+#   parent sequence (full name)  string          39    uvm_test_top.m_env.m_agent.m_seqr.m_seq
+#   sequencer                    string          33    uvm_test_top.m_env.m_agent.m_seqr      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO out_monitor.sv(75) @ 7170: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] 
+# Out monitor Got An Output Transaction 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1095
+#   sa       integral        4     'h0  
+#   da       integral        4     'he  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'h24 
+#     [1]    integral        8     'h86 
+#     [2]    integral        8     'h3f 
+#     [3]    integral        8     'h11 
+# --------------------------------------
+# 
+# UVM_INFO out_monitor.sv(76) @ 7170: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] Now Out monitor send the transaction to the Scoreboard!
+# UVM_INFO my_scoreboard.sv(24) @ 7170: uvm_test_top.m_env.sb [CHECK] DUT has completed a transaction. Now check the output...
+# UVM_INFO @ 7170: reporter [MISCMP] Miscompare for tr.sa: lhs = 'h3 : rhs = 'h0
+# UVM_INFO @ 7170: reporter [MISCMP] 1 Miscompare(s) for object tr@1095 vs. tr@1087
+# UVM_INFO my_scoreboard.sv(30) @ 7170: uvm_test_top.m_env.sb [CHECK_ERROR] Checking is done. But the result does not match the expected value! Please check your dut
+# UVM_INFO my_scoreboard.sv(19) @ 7170: uvm_test_top.m_env.sb [SCOREBOARD] Now waiting for getting the transaction from slave agent and reference model
+# UVM_INFO my_monitor.sv(80) @ 8050: uvm_test_top.m_env.m_agent.m_moni [Monitor] 
+# Monitor Got An Input Transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1107
+#   sa       integral        4     'h6  
+#   da       integral        4     'ha  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'h14 
+#     [1]    integral        8     'h84 
+#     [2]    integral        8     'h93 
+#     [3]    integral        8     'h92 
+# --------------------------------------
+# 
+# UVM_INFO my_monitor.sv(82) @ 8050: uvm_test_top.m_env.m_agent.m_moni [Monitor] Now monitor send the transaction to the reference model!
+# UVM_INFO my_reference_model.sv(19) @ 8050: uvm_test_top.m_env.ref_model [REF_REPORT] 
+# master agent have sent a transaction: 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1107
+#   sa       integral        4     'h6  
+#   da       integral        4     'ha  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'h14 
+#     [1]    integral        8     'h84 
+#     [2]    integral        8     'h93 
+#     [3]    integral        8     'h92 
+# --------------------------------------
+# 
+# UVM_INFO my_sequence.sv(27) @ 8050: uvm_test_top.m_env.m_agent.m_seqr@@m_seq [SEQ] 
+# Sequence get the resposne: 
+# -----------------------------------------
+# Name          Type            Size  Value
+# -----------------------------------------
+# tr            my_transaction  -     @1123
+#   sa          integral        4     'h6  
+#   da          integral        4     'ha  
+#   payload     da(integral)    4     -    
+#     [0]       integral        8     'h14 
+#     [1]       integral        8     'h84 
+#     [2]       integral        8     'h93 
+#     [3]       integral        8     'h92 
+#   begin_time  time            64    7130 
+# -----------------------------------------
+# 
+# UVM_INFO out_monitor.sv(75) @ 8090: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] 
+# Out monitor Got An Output Transaction 
+# --------------------------------------
+# Name       Type            Size  Value
+# --------------------------------------
+# tr         my_transaction  -     @1115
+#   sa       integral        4     'h0  
+#   da       integral        4     'ha  
+#   payload  da(integral)    4     -    
+#     [0]    integral        8     'h14 
+#     [1]    integral        8     'h84 
+#     [2]    integral        8     'h93 
+#     [3]    integral        8     'h92 
+# --------------------------------------
+# 
+# UVM_INFO out_monitor.sv(76) @ 8090: uvm_test_top.m_env.s_agent.m_moni [Out_Monitor] Now Out monitor send the transaction to the Scoreboard!
+# UVM_INFO my_scoreboard.sv(24) @ 8090: uvm_test_top.m_env.sb [CHECK] DUT has completed a transaction. Now check the output...
+# UVM_INFO @ 8090: reporter [MISCMP] Miscompare for tr.sa: lhs = 'h6 : rhs = 'h0
+# UVM_INFO @ 8090: reporter [MISCMP] 1 Miscompare(s) for object tr@1115 vs. tr@1107
+# UVM_INFO my_scoreboard.sv(30) @ 8090: uvm_test_top.m_env.sb [CHECK_ERROR] Checking is done. But the result does not match the expected value! Please check your dut
+# UVM_INFO my_scoreboard.sv(19) @ 8090: uvm_test_top.m_env.sb [SCOREBOARD] Now waiting for getting the transaction from slave agent and reference model
+# UVM_INFO /filespace/c/ccheng93/UVM_Learning/uvm_training_lab/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 8150: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :  128
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [CHECK]    10
+# [CHECK_ENABLE]     1
+# [CHECK_ERROR]    10
+# [CONVERAGE_ENABLE]     1
+# [DRV_RUN_PHASE]    10
+# [ENV]     1
+# [MISCMP]    20
+# [Monitor]    20
+# [NO_DPI_TSTNAME]     1
+# [Out_Monitor]    20
+# [REF_REPORT]    10
+# [RNTST]     1
+# [SCOREBOARD]    11
+# [SEQ]    10
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# ** Note: $finish    : /filespace/c/ccheng93/UVM_Learning/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 8150 ns  Iteration: 59  Instance: /top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at /filespace/c/ccheng93/UVM_Learning/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh line 430
+
