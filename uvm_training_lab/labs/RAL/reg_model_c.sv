@@ -6,17 +6,17 @@ class reg_model_c extends uvm_reg_block;
 
     virtual function void build();
 
-        config_reg = config_reg_c::type_id::create("config_reg", get_full_name());
+        config_reg = config_reg_c::type_id::create("config_reg", , get_full_name());
         // configure(in which reg_blcok, in which reg_page, HDL path for backdoor)
         config_reg.configure(this, null, "config_reg");
         config_reg.build();
 
-        mode_reg = mode_reg_c::type_id::create("mode_reg", get_full_name());
+        mode_reg = mode_reg_c::type_id::create("mode_reg", , get_full_name());
         mode_reg.configure(this, null, "mode_reg");
         mode_reg.build();
 
 
-        data_mem = data_mem_c::type_id::create("data_mem", get_full_name());
+        data_mem = data_mem_c::type_id::create("data_mem", , get_full_name());
         data_mem.configure(this, "data_mem");
 
         // create_map(name, base address, width in byte, endian mode)
